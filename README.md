@@ -1,4 +1,4 @@
-# Project repositories
+# Project Repository
 
 This homework is done as a group. You will be creating your team repository.
 
