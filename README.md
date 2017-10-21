@@ -12,9 +12,9 @@ You should do the following:
   
 Each person in the team should make at least one commit to the repository.
 
-Rubric:
-- Created repository with all team members as collaborators. (1 pt)
-- README file describes the questions addressed by the project. (1 pt)
-- data.md has a Requirements section with appropriate content. (1 pt)
-- data.md has a Sources section with appropriate content. (1 pt)
-- data.md has a Evaluation section with appropriate content. (1 pt)
+Rubric. Items 1-4 are group grades. Item 5 is an individual grade.
+1. Created repository with all team members as collaborators, and README file describes the questions addressed by the project. (1 pt)
+2. data.md has a Requirements section with appropriate content. (1 pt)
+3. data.md has a Sources section with appropriate content. (1 pt)
+4. data.md has a Evaluation section with appropriate content. (1 pt)
+5. You made a commit to the repository. (1 pt)
