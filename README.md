@@ -2,7 +2,9 @@
 
 ### Problem
 
-Our projects aims at the real problem of objection detection and labeling, which will appear in fields like robot manipulation, self driving car, etc.
+Our projects aims at the problem of objection detection and labeling, this appears in fields like robot manipulation, self driving car, etc. We will first use the data to train a model, then use the model to detect five different objecs(vehicle, pedestrian, cyclist and traffic lights) with different media. 
+
+![](/1.png)
 
 1.) Behind the scene, we will implement a neural network to train on the labelled image dataset and perform object detections on the test dataset and labeling them. If the accuracy is good enough, then the trained dataset can be a new/reusable dataset for further reference.
 
