@@ -2,7 +2,7 @@
 
 ### Problem
 
-Our projects aims at the problem of objection detection and labeling, this appears in fields like robot manipulation, self driving car, etc. We will first use the data to train a model, then use the model to detect five different objecs(vehicle, pedestrian, cyclist and traffic lights) with different media. 
+Our projects aims at the problem of objection detection and labeling, this appears in fields like robot manipulation, self driving car, etc. We will first use the data to train a model, then use the model to detect four different objecs(vehicle, pedestrian, cyclist and traffic lights) with different media. 
 
 ![](/1.png)
 
