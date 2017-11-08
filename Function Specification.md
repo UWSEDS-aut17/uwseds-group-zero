@@ -2,7 +2,6 @@
 ## Problem Statement Summary
 ### Goal: Perform object detection on static photos and dynamic videos and live cameras.
 1. Neural Network Object Detector
-%* Perform object detection on static photos and dynamic videos and live cameras.
 * Set up a repository of easily accessed the labelled trainning dataset(object-labelled pictures)
 * Build a proper neural network via tensorflow on python 3.5
 * Obtain testing dataset (picture without labels) to varify if the detector is robust and reliable
@@ -16,11 +15,7 @@
 * Store the output if the user wants
 3. Software Test
 * Unit tests are needed (for example, input loaded successful or not, test set or input doesn't have the object that the application can detect, wrong user interact actions, invalid user inputs, continual inputs, large inputs,etc)
-%* Store the output if the user wants
-%* Output may have two separate colums, one is the object-labelled result and the other is the original input, for comparison.
-%* Each input option will prompt the user to a new interface where the output is shown with a "Stop" button for the video and live %camera options to stop playing and a "Return" button for all three options to return to the input interface, in case the user wants %another job of detection. 
-%* All three input option have a "Start" button for user to start the detection.
-%* Print a message indicating whether the input is loaded successful or not.
+
 
 ## User Profile
  (两个选择)
