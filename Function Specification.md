@@ -18,7 +18,7 @@
 * Unit tests are needed (for example, input loaded successful or not, test set or input doesn't have the object that the application can detect, wrong user interact actions, invalid user inputs, continual inputs, large inputs,etc)
 %* Store the output if the user wants
 %* Output may have two separate colums, one is the object-labelled result and the other is the original input, for comparison.
-%* Each input option will prompt the user to a new interface where the output is shown with a "Stop" button for the video and live camera options to stop playing and a "Return" button for all three options to return to the input interface, in case the user wants another job of detection. 
+%* Each input option will prompt the user to a new interface where the output is shown with a "Stop" button for the video and live %camera options to stop playing and a "Return" button for all three options to return to the input interface, in case the user wants %another job of detection. 
 %* All three input option have a "Start" button for user to start the detection.
 %* Print a message indicating whether the input is loaded successful or not.
 
