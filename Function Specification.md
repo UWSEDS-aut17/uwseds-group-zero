@@ -1,5 +1,5 @@
 
-## Problem Statement Summary ##
+## Problem Statement Summary
 * Perform object detection on static photos and dynamic videos and live cameras.
 * Set up a repository of easily accessed the labelled trainning dataset(object-labelled pictures)
 * Build a proper neuro network via tensorflow on python 3.5
@@ -13,7 +13,7 @@
 * All three input option have a "Start" button for user to start the detection.
 * Print a message indicating whether the input is loaded successful or not.
 
-## User Profile ##
+## User Profile
  (两个选择)
 *  User knows how to browse a web page and interact with an application interface. (Web UI)
 *  User needs to know how to execute a python file in command line. (UI)
@@ -26,16 +26,13 @@
 *  User can stop playing the output(just for video and live camera) and can also return to the input choosing interface by clicking "Return"
 *  User can click "Start" button to start the detection if the input is successfully loaded.
 
-## Elements of the problem statement ##
-(data schemas---关于dataset的特点？important to the data)
-* The objects in the training dataset must be labelled precisely.
-* The type of the labelled objects may be limited to one or two. (car or sth else?)
-* The testing dataset without labels must contains the same type of objects that are labelled in the training set.
-* The clearness and background brightness of the picture data(all of the data that will be used, including train set, test set, inputs)
-* Trainning set must be large enough to ensure the correctness of the detection.
-* Optimal accuracy of the detection.(should we set a goal? How much will be good enough?)
+## Elements of the problem statement
+* Use the train data to build a dectector
+* Use the test data to evaluate the detector
+* Detect object from the input
+* Read a photo/ a video/ a camera stream as a input
 
-## Use cases ##
+## Use cases
 * User executes the python file in the command line to run the application. The application interface should show up and indicate there are three input options for user to choose.
  The app remains doing nothing until the user clicks "exit" button or  clicks one button out of three.
 * When the user clicks the "photo" button, the application prompts the user to input a photo to be detected.
