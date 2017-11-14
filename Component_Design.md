@@ -39,24 +39,23 @@
 - Input: label_test.txt; Output of objection dection from NN
 - Output: accuracy in percentage.
 ### Software interface
-
-* name: read_photo  
- what it does: read a photo for detection.
-input: file path of the photo
-output: photo
-* name: read_video  
- what it does: read a video for detection.
-input: file path of the video
-output: video
-* name: read_live_camera  
-  what it does: read a default live camera for detection.
-input: None
-output: video stream
-* name: object_detect  
-  what it does: detect object from a photo or a video or a live camera stream.
-input: read_photo / read_video / read_live_camera
-output: detection_result
-* name: return  
-  what it does: return to the original interface from the detection result
-input: None
-output: None
+1. read_photo
+* what it does: read a photo for detection.
+* input: file path of the photo
+* output: photo
+2. read_video
+* what it does: read a video for detection.
+* input: file path of the video
+* output: video
+3. read_live_camera
+* what it does: read a default live camera for detection.
+* input: None
+* output: video stream
+4.  object_detect
+*  what it does: detect object from a photo or a video or a live camera stream.
+* input: read_photo / read_video / read_live_camera
+* output: detection_result
+5.return
+* what it does: return to the original interface from the detection result
+* input: Click
+* output: None
