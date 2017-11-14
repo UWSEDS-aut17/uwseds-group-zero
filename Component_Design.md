@@ -55,7 +55,7 @@
 *  what it does: detect object from a photo or a video or a live camera stream.
 * input: read_photo / read_video / read_live_camera
 * output: detection_result
-5.return
+5. return
 * what it does: return to the original interface from the detection result
 * input: Click
 * output: None
