@@ -1,10 +1,10 @@
 
 ## Problem Statement Summary
-### Goal: Perform object detection on static photos and dynamic videos and live cameras.
+### Goal: Perform object detection on static photos, dynamic videos or live cameras.
 1. Neural Network Object Detector
-* Set up a repository of easily accessed the labelled trainning dataset(object-labelled pictures)
-* Build a proper neural network via tensorflow on python 3.5
-* Obtain testing dataset (picture without labels) to varify for evaluation (accuracy).
+* Set up a repository of easily accessed the labeled training dataset(object-labelled pictures)
+* Build a proper neural network via 'tensorflow' on python 3.5
+* Use test dataset (labeled images) to get model accuracy; use connected web camera to evaluate detection speed.
 2. Software Interface Construction
 * Create an application with an interface so that users can choose one of the three options of input data form
 * All three input options have a "Start" button for user to start the detection.
@@ -19,18 +19,20 @@
 
 ## User Profile
 *  User knows how to browse a web page and interact with an application interface. (Web UI)
-*  User heard about machine learning and deep learning and knows they cannot behave 100% correct.
-*  User should execute the application under the environment of python 3.5.
- (The followings are what the users don't know---the techniques behind)
-*  The object detector builds up a neuro network by tensorflow and implements machine learning(deep learning) algorithm to learn to precisely detect the objects in the screen(pictures, videos or streaming camera)
-*  User can stop playing the output(just for video and live camera) and can also return to the input choosing interface by clicking "Return"
-*  User can click "Start" button to start the detection if the input is successfully loaded.
+*  User heard about machine learning and deep learning and knows they cannot behave 100% correct.  
+*  User understands this model can only detect objects which have been fed to training process.
+(The followings are what the users don't know---the techniques behind)
+*  This application is excuted under the environment of python 3.5.
+*  The object detector builds up a neural network by tensorflow and implements Faster-RCNN to precisely detect the objects in the screen(pictures, videos or streaming camera). 
+
 
 ## Elements of the problem statement
-* Use the train data to build a dectector
-* Use the test data to evaluate the detector
-* Detect object from the input
-* Read a photo/ a video/ a camera stream as a input
+* How to read a photo/ a video/ a camera stream as a input.
+* How to make the machine learn to recognize the objects we are interested in.
+* How to find region proposals (regions we might be interested in) in a raw image.
+* How to classify the object in a region proposal.
+* How to revise the bounding box after recognizing a object. 
+
 
 ## Use cases
 * User executes the python file in the command line to run the application. The application interface should show up and indicate there are three input options for user to choose.

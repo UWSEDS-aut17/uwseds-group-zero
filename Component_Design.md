@@ -1,11 +1,12 @@
 # Component list
-### Training function
-1. train_config_generation
-2. train
-### Test(Evaluate) function
-1. test_config_generation
-2. test
-3. test_evaluation
+### Train  model
+1. train_tfrecords_generation
+2. train_config_generation
+3. train
+### Test(Evaluate) model
+1. test_tfrecords_generation
+2. test_config_generation
+3. test evaluation
 ### Software interface
 1. read_photo 
 2. read_video
@@ -17,28 +18,30 @@
 8. return
 
 # Component specifications
-### Training function
-1. train_config_generation
-- Transt the labeling info of all training images to a config file for train
+### Training model
+1. train_tfrecords_generation
+- Generate a tensorflow record (an input format in tensorflow) with image labels (containing class and bounding box).
+- Input: .csv file which list all the train-set image names and objects' bounding box.
+- Output: a train-set tfrecord file.
+2. train_config_generation
+- Generate a configuration file based on a sepecific algorithm, in this case, Faster-RCNN.
 - Input: label_train.txt; Images
 - Output: a .record file as config
-2. train
+3. train
 - Get the training image trained in NN
 - Input: label_test.txt; Images
 - Output: an NN
 
-### Test(Evaluate) function
-1. test_config_generation
-- What it does: Transt the labeling info of all tseting images to a config file for train.
-- Input: label_test.txt; Images
-- Output: a .record file as config
-2. test
+### Test(Evaluate) model
+1. test_tfrecords_generation (similar as above)
+2. test_config_generation (similar as above)
+3. test
 - What it does: Test our NN.
 - Input: label_test.txt; (Images)
 - Output: result of object detection
-3. test_evaluation
+4. test_evaluation
 - What it does: Calculate the accuracy of our deep learning NN.
-- Input: label_test.txt; (Output of objection dection from NN)
+- Input: label_test.txt; (Output of objection detection from NN)
 - Output: accuracy in percentage
 ### Software interface
 1. read_photo
