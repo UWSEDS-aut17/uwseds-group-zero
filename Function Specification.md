@@ -18,15 +18,11 @@
 
 
 ## User Profile
- (两个选择)
 *  User knows how to browse a web page and interact with an application interface. (Web UI)
-*  User needs to know how to execute a python file in command line. (UI)
 *  User heard about machine learning and deep learning and knows they cannot behave 100% correct.
 *  User should execute the application under the environment of python 3.5.
  (The followings are what the users don't know---the techniques behind)
 *  The object detector builds up a neuro network by tensorflow and implements machine learning(deep learning) algorithm to learn to precisely detect the objects in the screen(pictures, videos or streaming camera)
-(算法怎么实现比如神经元节点怎么处理，什么function要怎么设置之类的大腿补充一下)
-*  ...
 *  User can stop playing the output(just for video and live camera) and can also return to the input choosing interface by clicking "Return"
 *  User can click "Start" button to start the detection if the input is successfully loaded.
 
