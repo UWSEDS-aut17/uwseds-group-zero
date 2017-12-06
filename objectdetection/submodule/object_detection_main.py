@@ -105,7 +105,7 @@ class objectDetection:
     #           flag refers to a boolean indicating whether the input is a static image or not
     # Return: True if the video/camera detection process is interrupted by user or lost of streaming input.
     # Keep detecting if input stream continues
-    def detect_process(self, cap, flag):
+    def detect_process(self, cap, flag, test_video):
         category_index = self.model_setup()
         with detection_graph.as_default():
             with tf.Session(graph=detection_graph) as sess:
@@ -156,6 +156,9 @@ class objectDetection:
                     # if input is an image, just return the detected version once it comes
                     # back from the tensorflow graph
                     else:
+                        if test_video == True:
+                            cv2.destroyAllWindows()
+                            return False
                         cv2.imshow('object detection', cv2.resize(image_done, (1024, 768)))
                         # Quit detection if user interrupts it by pressing the key 'q'
                         if cv2.waitKey(25) & 0xFF == ord('q'):

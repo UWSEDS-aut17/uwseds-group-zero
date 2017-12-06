@@ -55,11 +55,11 @@ class ObjectDetection_ui(tk.Tk):
     # Open the webcam of the user's laptop
 
     def askcam(self):
-        stop = af.input_cam(self.modelPath, self.labelMapPath)
+        stop = af.input_cam(self.modelPath, self.labelMapPath, False)
         # stop streaming and release the camera
         # if window close or "q" is pressed
-        if (stop == True):
-            return
+        # if (stop == -1):
+        #     return
 
     # Delete the placeholder when new input is indicated
     def delete_placeholder(self, entry):

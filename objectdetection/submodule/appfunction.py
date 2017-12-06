@@ -22,7 +22,7 @@ def tf_version_check():
 def input_image(img_input, modelPath, labelMapPath):
     img_input = cv2.imread(img_input)
     new_img_Process = od.objectDetection(modelPath, labelMapPath)
-    img_detected, testval = new_img_Process.detect_process(img_input, True)
+    img_detected, testval = new_img_Process.detect_process(img_input, True, 1)
     img_detected = Image.fromarray(img_detected, 'RGB')
     return img_detected, testval
 
@@ -30,22 +30,21 @@ def input_image(img_input, modelPath, labelMapPath):
 
 
 def input_video(video_file, modelPath, labelMapPath):
-    video_input = cv2.VideoCapture.open(video_file)
+    video_input = cv2.VideoCapture(video_file)
     video_open(video_input, False, modelPath, labelMapPath)
 
 # call for camera streaming
 
 
-def input_cam(modelPath, labelMapPath):
+def input_cam(modelPath, labelMapPath, test):
     cap = cv2.VideoCapture(0)
-    video_open(cap, False, modelPath, labelMapPath)
-
+    return video_open(cap, False, modelPath, labelMapPath, test)
 
 def file_is_exist(path):
     return os.path.isfile(path)
 
 
-def video_open(cap, flag, modelPath, labelMapPath):
+def video_open(cap, flag, modelPath, labelMapPath, test):
     if not cap.isOpened():
         raise Exception("Error opening video stream or file!")
     print("You can press 'q' to close the detection window after you see it pops up!")
@@ -53,7 +52,13 @@ def video_open(cap, flag, modelPath, labelMapPath):
     while (cap.isOpened()):
         # sent to object detection
         # stop streaming and release the camera if window close or "q" is pressed
-        stop = new_video_Process.detect_process(cap, flag)
+        stop = new_video_Process.detect_process(cap, flag, test)
+        # stopped by user
         if stop == True:
             cap.release
-            break
+            return -1
+        # test ends when return value from detect_process is false
+        else:
+            cap.release
+            return 1
+
