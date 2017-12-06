@@ -23,7 +23,9 @@ class ObjectDetection_ui(tk.Tk):
 
     # Open a file dialog asking for the input image file
     def askopenimgfile(self):
-        path = filedialog.askopenfilename()
+        path = filedialog.askopenfilename(filetypes=(("jpeg files", "*.jpg"), ("all files","*.*")))
+        if path == None or path == "":
+            return
         # got back the detected image
         img_processed, testval = af.input_image(path, self.modelPath, self.labelMapPath)
         img = img_processed.resize((800, 600))
@@ -48,7 +50,9 @@ class ObjectDetection_ui(tk.Tk):
 
     # Open a file dialog asking for the input video file
     def askopenvideofile(self):
-        path = filedialog.askopenfilename()
+        path = filedialog.askopenfilename(filetypes=(("mp4 files","*.mp4"), ("avi files","*.avi"), ("all files","*.*")))
+        if path == None or path == "":
+            return
         stop = af.input_video(path, self.modelPath, self.labelMapPath)
         if stop == True:
             return
@@ -67,14 +71,18 @@ class ObjectDetection_ui(tk.Tk):
     # Open a file dialog asking for the model file
 
     def askmodelfile(self, entry):
-        path = filedialog.askopenfilename()
+        path = filedialog.askopenfilename(filetypes=(("pb files","*.pb"), ("all files","*.*")))
+        if path == None or path == "":
+            return
         self.delete_placeholder(entry)
         entry.insert(0, path)
         self.modelPath = path
 
     # Open a file dialog asking for the label map file
     def asklabelfile(self, entry):
-        path = filedialog.askopenfilename()
+        path = filedialog.askopenfilename(filetypes=(("pbtxt files","*.pbtxt"), ("all files","*.*")))
+        if path == None or path == "":
+            return
         self.delete_placeholder(entry)
         entry.insert(0, path)
         self.labelMapPath = path
