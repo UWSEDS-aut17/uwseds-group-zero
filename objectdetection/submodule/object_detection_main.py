@@ -152,7 +152,7 @@ class objectDetection:
                     # back from the tensorflow graph
                     if flag == True:
                         output_img = cv2.resize(image_done, (1024, 768))
-                        return output_img, 1
+                        return output_img, False
                     # if input is an image, just return the detected version once it comes
                     # back from the tensorflow graph
                     else:

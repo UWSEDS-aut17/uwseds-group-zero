@@ -31,7 +31,7 @@ def input_image(img_input, modelPath, labelMapPath):
 
 def input_video(video_file, modelPath, labelMapPath):
     video_input = cv2.VideoCapture(video_file)
-    video_open(video_input, False, modelPath, labelMapPath)
+    video_open(video_input, False, modelPath, labelMapPath, False)
 
 # call for camera streaming
 
