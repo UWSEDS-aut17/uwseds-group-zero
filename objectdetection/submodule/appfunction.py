@@ -47,7 +47,7 @@ def file_is_exist(path):
 def video_open(cap, flag, modelPath, labelMapPath, test):
     if not cap.isOpened():
         raise Exception("Error opening video stream or file!")
-    print("You can press 'q' to close the detection window after you see it pops up!")
+    print("PRESS 'q' to CLOSE the detection window after you see it pops up!")
     new_video_Process = od.objectDetection(modelPath, labelMapPath)
     while (cap.isOpened()):
         # sent to object detection
