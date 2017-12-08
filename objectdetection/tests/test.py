@@ -14,13 +14,13 @@ class Object_detector_test(unittest.TestCase):
         img_input = "test_image.jpg"
         modelPath = '../submodule/ssd_mobilenet_v1_coco_11_06_2017/frozen_inference_graph.pb'
         labelMapPath = '../data/mscoco_label_map.pbtxt'
-        image_done, testval = appfun.input_image(img_input, modelPath, labelMapPath)
-        self.assertTrue(np.isclose(testval, 1))
+        testval, image_done = appfun.input_image(img_input, modelPath, labelMapPath, None)
+        self.assertTrue(np.isclose(testval, -1))
     
     def test_input_cam(self):
         modelPath = '../ssd_mobilenet_v1_coco_11_06_2017/frozen_inference_graph.pb'
         labelMapPath = '../data/mscoco_label_map.pbtxt'
-        self.assertTrue(np.isclose(appfun.input_cam(modelPath, labelMapPath, True), 1))
+        self.assertTrue(np.isclose(appfun.input_cam(modelPath, labelMapPath, None, True), 1))
 
 # if __name__ == '__main__':
 #     unittest.main()

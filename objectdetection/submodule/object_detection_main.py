@@ -17,6 +17,7 @@ from PIL import Image
 import numpy as np
 import tarfile
 import zipfile
+import time
 import sys
 import cv2
 import os
@@ -105,8 +106,13 @@ class objectDetection:
     #           flag refers to a boolean indicating whether the input is a static image or not
     # Return: True if the video/camera detection process is interrupted by user or lost of streaming input.
     # Keep detecting if input stream continues
-    def detect_process(self, cap, flag, test_video):
+    def detect_process(self, cap, imgflag, save, savepath, test_video):
         category_index = self.model_setup()
+        if save == True:
+            fps = 30
+            capSize = (1024, 768) # this is the size of my source video
+            fourcc = cv2.VideoWriter_fourcc(*'mp4v') # note the lower case
+            self.videoSave = cv2.VideoWriter(os.path.join(savepath, "savedOutputStream.mp4"), fourcc, fps, capSize, True)
         with detection_graph.as_default():
             with tf.Session(graph=detection_graph) as sess:
                 # Definite input and output Tensors for detection_graph
@@ -122,19 +128,20 @@ class objectDetection:
                 # detection process loop
                 while True:
                     # input is video or camera
-                    if flag == False:
+                    if imgflag == False:
                         ret, frame = cap.read()
                         if ret == True:
                             image_np = frame
                         # If input stream is lost,
                         # terminate the process by return the last frame that is after detection
                         else:
-                            flag = True
+                            break
                     # input is a static image
                     else:
                         image_np = cap
                     # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
                     image_np_expanded = np.expand_dims(image_np, axis=0)
+                    # startper = time.perf_counter()
                     # Actual detection.
                     (boxes, scores, classes, num) = sess.run(
                         [detection_boxes, detection_scores, detection_classes, num_detections],
@@ -150,19 +157,32 @@ class objectDetection:
                         line_thickness=8)
                     # if input is an image, just return the detected version once it comes
                     # back from the tensorflow graph
-                    if flag == True:
+                    if imgflag == True:
                         output_img = cv2.resize(image_done, (1024, 768))
-                        return output_img, False
-                    # if input is an image, just return the detected version once it comes
-                    # back from the tensorflow graph
+                        # return the test_val for image, image
+                        return -1, output_img
+
                     else:
                         if test_video == True:
                             cv2.destroyAllWindows()
-                            return False
-                        cv2.imshow('object detection', cv2.resize(image_done, (1024, 768)))
+                            # return test
+                            return test_video, None
+                        image_resize = cv2.resize(image_done, (1024, 768))
+                        cv2.imshow('object detection', image_resize)
+                        endper = time.perf_counter()
+                        # print("Detection/frame-perf: " + str(endper - startper))
+                        if save == True:
+                            start = time.clock()
+                            self.videoSave.write(image_resize)
                         # Quit detection if user interrupts it by pressing the key 'q'
                         if cv2.waitKey(25) & 0xFF == ord('q'):
+                            cap.release()
                             cv2.destroyAllWindows()
+                            # return test
                             break
-                # return a signal of process termination
-                return True
+                if save == True:
+                    self.videoSave.release()
+                cap.release()
+                cv2.destroyAllWindows()
+                return test_video, None
+                
