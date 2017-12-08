@@ -20,14 +20,14 @@ class ObjectDetection_ui(tk.Tk):
         af.tf_version_check()
         self.modelPath = ""
         self.labelMapPath = ""
-
+        self.savepath = ""
     # Open a file dialog asking for the input image file
     def askopenimgfile(self):
         path = filedialog.askopenfilename(filetypes=(("jpeg files", "*.jpg"), ("all files","*.*")))
         if path == None or path == "":
             return
         # got back the detected image
-        img_processed, testval = af.input_image(path, self.modelPath, self.labelMapPath)
+        img_processed, testval = af.input_image(path, self.modelPath, self.labelMapPath, self.savepath)
         img = img_processed.resize((800, 600))
         photo = PIL.ImageTk.PhotoImage(img)
         # open the image in a new window
@@ -53,13 +53,13 @@ class ObjectDetection_ui(tk.Tk):
         path = filedialog.askopenfilename(filetypes=(("mp4 files","*.mp4"), ("avi files","*.avi"), ("all files","*.*")))
         if path == None or path == "":
             return
-        stop = af.input_video(path, self.modelPath, self.labelMapPath)
+        stop = af.input_video(path, self.modelPath, self.labelMapPath, self.savepath, False)
         if stop == True:
             return
     # Open the webcam of the user's laptop
 
     def askcam(self):
-        stop = af.input_cam(self.modelPath, self.labelMapPath, False)
+        stop = af.input_cam(self.modelPath, self.labelMapPath, self.savepath, False)
         # stop streaming and release the camera
         # if window close or "q" is pressed
         # if (stop == -1):
@@ -87,6 +87,21 @@ class ObjectDetection_ui(tk.Tk):
         entry.insert(0, path)
         self.labelMapPath = path
 
+    def outputvideopath(self):
+        if self.var.get() == 1:
+            self.savepath = filedialog.askdirectory()
+            if self.savepath == None or self.savepath == "" or os.path.isdir(self.savepath) == False:
+                raise Exception("Invalid path!")
+            self.video_out_path.configure(state='normal')
+            self.delete_placeholder(self.video_out_path)
+            self.video_out_path.insert(0, self.savepath)
+            # pass to saving the output as a video
+        else:
+            self.delete_placeholder(self.video_out_path)
+            self.video_out_path.insert(0, self.videoOutText)
+            self.video_out_path.configure(state='disabled')
+            return
+
     # main function where the ui runs
     def main(self):
         self.group_1 = Frame(self.window)
@@ -95,9 +110,11 @@ class ObjectDetection_ui(tk.Tk):
         self.modelGroup.pack(fill=X, expand=YES)
         self.labelGroup = Frame(self.group_1)
         self.labelGroup.pack(fill=X, expand=YES)
+        self.videoout = Frame(self.group_1)
+        self.videoout.pack(fill=X, expand=YES)
         # display the path of model used and label map data file
         custPath = StringVar(None)
-        pretext_model = "Please indicate the path to your detection model (*.pbtxt)"
+        pretext_model = "Please indicate the path to your detection model (*.pb)"
         self.model_path = Entry(self.modelGroup, width=54, textvariable=custPath)
         self.model_path.insert(0, pretext_model)
         self.model_path.pack(side=LEFT)
@@ -111,7 +128,7 @@ class ObjectDetection_ui(tk.Tk):
 
         # label map data file
         custPath_label = StringVar(None)
-        pretext_label = "Please indicate the path to your label map file (*.pb)"
+        pretext_label = "Please indicate the path to your label map file (*.pbtxt)"
         self.label_path = Entry(self.labelGroup, width=54, textvariable=custPath_label)
         self.label_path.insert(0, pretext_label)
         self.label_path.pack(side=LEFT)
@@ -121,6 +138,20 @@ class ObjectDetection_ui(tk.Tk):
         self.label_input = Button(self.labelGroup, text="Browse",
                                   command=lambda: self.asklabelfile(self.label_path))
         self.label_input.pack(side=LEFT)
+
+        # Entry path for saving the output video file
+        self.videoOutText = StringVar(None)
+        self.videoOutText = "Please indicate the path to output the saved video file."
+        self.video_out_path = Entry(self.videoout, width=54, textvariable=self.videoOutText)
+        self.video_out_path.insert(0, self.videoOutText)
+        self.video_out_path.configure(state="disabled")
+        self.video_out_path.pack(side=LEFT)
+        self.video_out_path.bind("<Button-1>", lambda event,
+                             arg=self.video_out_path: self.delete_placeholder(arg))
+        # Checkbutton for whether output an video or not
+        self.var = IntVar()
+        self.video_out = Checkbutton(self.videoout, text="Save Video Output", variable=self.var, command=self.outputvideopath)
+        self.video_out.pack(side=LEFT)
 
         # Buttons of 3 input-type options and Quit
         self.group_2 = Frame(self.window)
