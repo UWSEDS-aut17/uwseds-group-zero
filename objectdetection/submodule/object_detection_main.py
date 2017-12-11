@@ -131,10 +131,15 @@ class objectDetection:
     # draw boxes around detected objects in the pictures/videos/camera
     # stream with predicted name of the detected object and 
     # percentage of correctness confidence
-    # Argument: cap refers to the input to be detected 
+    # Argument: 1. cap refers to the input to be detected 
     #           (can be images, videos, or streaming camera)
-    #           flag refers to a boolean indicating 
+    #           2. imgflag refers to a boolean indicating 
     #           whether the input is a static image or not
+    #           3. save Indicates whether users want to save the output
+    #              or not (True if so)
+    #           4. savepath The path where users want to save their output
+    #           5. test_video Indicates whether the process is called in a 
+    #              test or not. (True if so)
     # Return: * -1 and the detected image in array form 
     #           if the process is to detect a static image
     #         * test_video flag (True if it's for test and false otherwise) 
