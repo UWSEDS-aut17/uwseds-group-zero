@@ -135,8 +135,10 @@ class objectDetection:
     #           (can be images, videos, or streaming camera)
     #           flag refers to a boolean indicating 
     #           whether the input is a static image or not
-    # Return: True if the video/camera detection process is interrupted 
-    #         by user or lost of streaming input.
+    # Return: * -1 and the detected image in array form 
+    #           if the process is to detect a static image
+    #         * test_video flag (True if it's for test and false otherwise) 
+    #           if the process is to detect a video or live camera
     # Keep detecting if input stream continues
     def detect_process(self, cap, imgflag, save, savepath, test_video):
         category_index = self.model_setup()
