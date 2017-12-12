@@ -31,7 +31,7 @@ Return: *  An array - The detected image
            (with boxes around detected objects in the image)
         *  -1 - for test value as an indicator of testing
 '''
-def input_image(img_input, modelPath, labelMapPath, savepath):
+def input_image(img_input, modelPath, labelMapPath, savepath, save):
     img_input = cv2.imread(img_input)
     print("Processing...")
     new_img_Process = od.objectDetection(modelPath, labelMapPath)
@@ -42,10 +42,11 @@ def input_image(img_input, modelPath, labelMapPath, savepath):
                                 savepath,
                                 False
                                 )
-    cv2.imwrite(os.path.join(savepath, 
-                             'savedimg.jpg'), 
-                             img_detected
-                             )
+    if save == True:
+        cv2.imwrite(os.path.join(savepath, 
+                                 'savedimg.jpg'), 
+                                 img_detected
+                                 )
     img_detected = Image.fromarray(img_detected, 'RGB')
     return img_detected, testval
 
@@ -117,7 +118,7 @@ def video_open(cap, flag, modelPath, labelMapPath, savepath, test):
     if not cap.isOpened():
         raise Exception("Error opening video stream or file!")
     print("Processing...")
-    print("PRESS 'q' to CLOSE the detection window" + \
+    print("PRESS 'q' to CLOSE the detection window " + \
           "after you see it pops up!")
     save = False
     if not savepath == None and not \

@@ -40,11 +40,16 @@ class ObjectDetection_ui(tk.Tk):
             )
         if path == None or path == "":
             return
+        save = False
+        if self.var.get() == 1:
+            save = True
         # got back the detected image
         img_processed, testval = af.input_image(path,
                                                 self.modelPath,
                                                 self.labelMapPath,
-                                                self.savepath)
+                                                self.savepath,
+                                                save
+                                                )
         img = img_processed.resize((800, 600))
         photo = PIL.ImageTk.PhotoImage(img)
         # open the image in a new window

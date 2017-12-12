@@ -234,7 +234,7 @@ class objectDetection:
                         if test_video == True:
                             cv2.destroyAllWindows()
                             # return test
-                            return test_video, None
+                            return test_video
                         image_resize = cv2.resize(image_done, (1024, 768))
                         cv2.imshow('object detection', image_resize)
                         if save == True:
@@ -250,5 +250,5 @@ class objectDetection:
                     self.videoSave.release()
                 cap.release()
                 cv2.destroyAllWindows()
-                return test_video, None
+                return test_video
                 
