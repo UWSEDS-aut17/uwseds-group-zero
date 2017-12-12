@@ -28,6 +28,9 @@ import os
 
 rate = ""
 
+'''
+Class for a new object detection process
+'''
 class objectDetection:
     def __init__(self, modelPath, labelMapPath):
         self.modelPath = modelPath
@@ -63,7 +66,7 @@ class objectDetection:
                 # Download Model
                 opener = urllib.request.URLopener()
                 opener.retrieve(DOWNLOAD_BASE + \
-                                MODEL_FILE, 
+                                MODEL_FILE,
                                 MODEL_FILE)
                 tar_file = tarfile.open(MODEL_FILE)
                 for file in tar_file.getmembers():
@@ -80,7 +83,7 @@ class objectDetection:
         if self.labelMapPath == None or \
            self.labelMapPath == "":
             # List of the strings that is used to add correct label for each box.
-            PATH_TO_LABELS = os.path.join('data', 
+            PATH_TO_LABELS = os.path.join('data',
                                           'mscoco_label_map.pbtxt'
                                           )
         else:
@@ -112,8 +115,8 @@ class objectDetection:
         # to appropriate string labels would be fine
         label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
         categories = label_map_util.convert_label_map_to_categories(
-            label_map, 
-            max_num_classes=NUM_CLASSES, 
+            label_map,
+            max_num_classes=NUM_CLASSES,
             use_display_name=True
             )
         category_index = label_map_util.create_category_index(categories)
@@ -126,25 +129,27 @@ class objectDetection:
     # for a list of other models that can be run out-of-the-box 
     # with varying speeds and accuracies.
 
-    # detection process:
-    # Startup tensorflow process and 
-    # draw boxes around detected objects in the pictures/videos/camera
-    # stream with predicted name of the detected object and 
-    # percentage of correctness confidence
-    # Argument: 1. cap refers to the input to be detected 
-    #           (can be images, videos, or streaming camera)
-    #           2. imgflag refers to a boolean indicating 
-    #           whether the input is a static image or not
-    #           3. save Indicates whether users want to save the output
-    #              or not (True if so)
-    #           4. savepath The path where users want to save their output
-    #           5. test_video Indicates whether the process is called in a 
-    #              test or not. (True if so)
-    # Return: * -1 and the detected image in array form 
-    #           if the process is to detect a static image
-    #         * test_video flag (True if it's for test and false otherwise) 
-    #           if the process is to detect a video or live camera
-    # Keep detecting if input stream continues
+    '''
+    Detection process (Keep detecting if input stream continues)
+    a.Startup tensorflow process and 
+    b.Draw boxes around detected objects in the pictures/videos/camera
+    stream with predicted name of the detected object and 
+    percentage of correctness confidence
+
+    Argument: 1. cap refers to the input to be detected 
+              (can be images, videos, or streaming camera)
+              2. imgflag refers to a boolean indicating 
+              whether the input is a static image or not
+              3. save Indicates whether users want to save the output
+                 or not (True if so)
+              4. savepath The path where users want to save their output
+              5. test_video Indicates whether the process is called in a 
+                 test or not. (True if so)
+    Return: * -1 and the detected image in array form 
+              if the process is to detect a static image
+            * test_video flag (True if it's for test and false otherwise) 
+              if the process is to detect a video or live camera
+    '''
     def detect_process(self, cap, imgflag, save, savepath, test_video):
         category_index = self.model_setup()
         if save == True:
@@ -155,10 +160,10 @@ class objectDetection:
             self.videoSave = cv2.VideoWriter(
                                     os.path.join(savepath, 
                                                  "savedOutputStream.mp4"
-                                                 ), 
-                                    fourcc, 
-                                    fps, 
-                                    capSize, 
+                                                 ),
+                                    fourcc,
+                                    fps,
+                                    capSize,
                                     True
                                     )
         with detection_graph.as_default():
@@ -199,9 +204,9 @@ class objectDetection:
                     # Actual detection.
                     (boxes, scores, classes, num) = sess.run(
                         [
-                            detection_boxes, 
-                            detection_scores, 
-                            detection_classes, 
+                            detection_boxes,
+                            detection_scores,
+                            detection_classes,
                             num_detections
                         ],
                         feed_dict={image_tensor: image_np_expanded}
