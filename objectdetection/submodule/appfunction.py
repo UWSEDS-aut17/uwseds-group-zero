@@ -45,7 +45,7 @@ def input_image(img_input, modelPath, labelMapPath, savepath):
 
 def input_video(video_file, modelPath, labelMapPath, savepath, test):
     video_input = cv2.VideoCapture(video_file)
-    video_open(video_input, 
+    return video_open(video_input, 
                False, 
                modelPath, 
                labelMapPath, 
