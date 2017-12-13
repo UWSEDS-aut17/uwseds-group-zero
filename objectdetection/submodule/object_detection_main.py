@@ -54,8 +54,8 @@ class objectDetection:
             # What model to download.
             MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
             MODEL_FILE = MODEL_NAME + '.tar.gz'
-            DOWNLOAD_BASE = 'http://download.tensorflow.org/' +
-            'models/object_detection/'
+            DOWNLOAD_BASE = 'http://download.tensorflow.org/' + \
+                            'models/object_detection/'
             # Path to frozen detection graph.
             # This is the actual model that is used for the object detection.
             PATH_TO_CKPT = "./submodule/" + \
