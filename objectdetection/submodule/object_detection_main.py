@@ -235,6 +235,8 @@ class objectDetection:
                             cv2.destroyAllWindows()
                             # return test
                             return test_video
+                        rate = endper - startper
+                        print(rate)
                         image_resize = cv2.resize(image_done, (1024, 768))
                         cv2.imshow('object detection', image_resize)
                         if save == True:
