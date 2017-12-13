@@ -28,6 +28,8 @@ Potentially, there are several difficulties that need to be addressed:
 * Pillow
 * Opencv
 * Tkinter
+* matplotlib
+* pycodestyle
 
 #### Installing Opencv ####
 In order to use the video input capturing property of opencv, here are some strategies that are provided for making opencv work like a charm. 
