@@ -25,7 +25,10 @@ setup(
     ],
     keywords='object detection',
     packages=find_packages(),
-    install_requires=['tensorflow==1.4.0', 'tkinter', 'Pillo>=1.0', 'opencv-python', 'pycodestyle'],
+    install_requires=['tensorflow==1.4.0',
+                      'tkinter', 'Pillo>=1.0',
+                      'opencv-python',
+                      'pycodestyle'],
     python_requires='>=3.5, !=3.6.*, <4',
 
 )
