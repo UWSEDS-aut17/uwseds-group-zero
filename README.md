@@ -31,6 +31,12 @@ Potentially, there are several difficulties that need to be addressed:
 * matplotlib
 * pycodestyle
 
+### Usage ###
+* Run >python3 setup.py install in the root of uwseds-group-zero directory and this should install all required packages so that our application can be run.
+* > cd objectdetection
+* > python3 user_interface.py
+Then our interface of the object detection application should show up for user.
+
 #### Installing Opencv ####
 In order to use the video input capturing property of opencv, here are some strategies that are provided for making opencv work like a charm. 
 (Just for referencing, no guarantees. If want fully install, please directly go to the link in step 9.)
