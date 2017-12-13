@@ -3,8 +3,8 @@ import cv2
 import os
 import sys
 import numpy as np
-sys.path.insert(0, '../')
-from submodule import appfunction as appfun
+# sys.path.insert(0, '../')
+from ..submodule import appfunction as appfun
 
 '''
 This class tests main functions of this detector.

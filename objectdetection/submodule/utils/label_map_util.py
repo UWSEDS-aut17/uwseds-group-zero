@@ -16,13 +16,12 @@
 """Label map utility functions."""
 
 import logging
-
 import tensorflow as tf
 from google.protobuf import text_format
 import os
 import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "/..")))
-from utils import string_int_label_map_pb2
+# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "/..")))
+from ..utils import string_int_label_map_pb2
 
 
 def _validate_label_map(label_map):
