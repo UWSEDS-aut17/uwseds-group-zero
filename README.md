@@ -33,7 +33,7 @@ Potentially, there are several difficulties that need to be addressed:
 
 ### Usage ###
 Go into the folder of uwseds-group-zero as the root of our application. Run the following code.
-* >python3 setup.py install --- this should install all required packages so that our application can be run.
+* > python3 setup.py install --- this should install all required packages so that our application can be run.
 * > cd objectdetection --- where our interface python file lives
 * > python3 user_interface.py --- execute the interface
 Then our interface of the object detection application should show up for user.
