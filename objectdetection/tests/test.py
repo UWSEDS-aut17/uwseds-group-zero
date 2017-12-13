@@ -1,14 +1,15 @@
+import pathmagic  # noqa
+# prevents pycodestyle/pep8 from complaining about an unused import.
 import unittest
 import cv2
-import os
-import sys
 import numpy as np
-# sys.path.insert(0, '../')
-from ..submodule import appfunction as appfun
+from submodule import appfunction as appfun
 
 '''
 This class tests main functions of this detector.
-''' 
+'''
+
+
 class Object_detector_test(unittest.TestCase):
     '''
     Test the function of detecting static image
@@ -25,7 +26,7 @@ class Object_detector_test(unittest.TestCase):
                                                  False
                                                  )
         self.assertTrue(np.isclose(testval, -1))
-    
+
     '''
     Test the function of detecting video
     '''
@@ -74,6 +75,7 @@ class Object_detector_test(unittest.TestCase):
                               "",
                               True)
         self.assertTrue(True)
+
 
 # if __name__ == '__main__':
 suite = unittest.TestLoader().loadTestsFromTestCase(Object_detector_test)
