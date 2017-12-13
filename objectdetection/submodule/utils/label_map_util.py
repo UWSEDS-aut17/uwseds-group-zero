@@ -20,7 +20,6 @@ import tensorflow as tf
 from google.protobuf import text_format
 import os
 import sys
-# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "/..")))
 from ..utils import string_int_label_map_pb2
 
 
@@ -48,8 +47,9 @@ def create_category_index(categories):
           e.g., 'cat', 'dog', 'pizza'.
 
     Returns:
-      category_index: a dict containing the same entries as categories, but keyed
-        by the 'id' field of each category.
+      category_index: a dict containing the same entries
+                      as categories, but keyed
+                      by the 'id' field of each category.
     """
     category_index = {}
     for cat in categories:
@@ -73,12 +73,16 @@ def convert_label_map_to_categories(label_map,
     we will only keep the first one in the categories list.
 
     Args:
-      label_map: a StringIntLabelMapProto or None.  If None, a default categories
-        list is created with max_num_classes categories.
-      max_num_classes: maximum number of (consecutive) label indices to include.
-      use_display_name: (boolean) choose whether to load 'display_name' field
-        as category name.  If False or if the display_name field does not exist,
-        uses 'name' field as category names instead.
+      label_map: a StringIntLabelMapProto or None.
+                 If None, a default categories
+                 list is created with max_num_classes categories.
+      max_num_classes:
+            maximum number of (consecutive) label indices to include.
+      use_display_name:
+            (boolean) choose whether to load 'display_name' field
+            as category name.
+            If False or if the display_name field does not exist,
+            uses 'name' field as category names instead.
     Returns:
       categories: a list of dictionaries representing all possible categories.
     """
@@ -127,11 +131,14 @@ def load_labelmap(path):
 
 
 def get_label_map_dict(label_map_path, use_display_name=False):
-    """Reads a label map and returns a dictionary of label names to id.
+    """
+    Reads a label map and
+    returns a dictionary of label names to id.
 
     Args:
       label_map_path: path to label_map.
-      use_display_name: whether to use the label map items' display names as keys.
+      use_display_name:
+        whether to use the label map items' display names as keys.
 
     Returns:
       A dictionary mapping label names to id.
