@@ -67,6 +67,13 @@ In order to use the video input capturing property of opencv, here are some stra
 * Go into the tests folder in objectdetection directory
 * Run nosetests --with-coverage test.py
 * If want to run: python3 test.py, change the first line of importing in test.py to be: "import pathmagic  # noqa" to aviod import issue
+Feedbackt to instructor's suggestion of testing our user_interface.py: 
+For the test of all UI functions, when we tried to test them (i.e., askopenimgfile(), resize_image(), askopenvideofile(), askcam(), delete_placeholder(), askmodelfile(), asklabelfile(), outputvideopath()), we found it's really heard to give a real input and test the result, because the input should be the dynamic interface and output is also function of actions like showing, bindding. On the other part, in these UI functions, the packages we used include tkinter, PIL, cv2 and appfunction.py (written by our own). For tkinter, PIL and cv2, they are all well-developed packages, and there are uinittests for appfunction.py. 
+
+For the issue of wrong file types, we limited the file types in the input function, i.e. jpg for image, avi & mp4 for model, .pbtxt for labelmap and .pb for object detection frozen model. So wrong file type will not be expected to appear.
+
+In conclusion, because we suppose our UI interface is robost enough and UI interface test will destroy our function structure, we decided not to test the functions in UI.
+
 
 ### Example ###
 In the example folder, the Example.md is the thorough usage guidance of our application --- how to interact with the user interface to get desired results.
