@@ -58,7 +58,7 @@ class objectDetection:
                             'models/object_detection/'
             # Path to frozen detection graph.
             # This is the actual model that is used for the object detection.
-            PATH_TO_CKPT = "./submodule/" + \
+            PATH_TO_CKPT = "./function/" + \
                 MODEL_NAME + \
                 '/frozen_inference_graph.pb'
             if os.path.isfile(PATH_TO_CKPT) and \
@@ -74,7 +74,7 @@ class objectDetection:
                 for file in tar_file.getmembers():
                     file_name = os.path.basename(file.name)
                     if 'frozen_inference_graph.pb' in file_name:
-                        tar_file.extract(file, os.getcwd() + "/submodule")
+                        tar_file.extract(file, os.getcwd() + "/function")
         else:
             if not os.path.isfile(self.modelPath) or not \
                    os.access(self.modelPath, os.R_OK):

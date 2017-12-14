@@ -79,6 +79,8 @@ class ObjectDetection_ui(tk.Tk):
 
     def resize_image(self, event, img):
         w, h = event.width, event.height
+        if img is None:
+            raise Exception("Invalid input image")
         img_copy = img.copy()
         resize_img = img_copy.resize((w, h))
         photo = PIL.ImageTk.PhotoImage(resize_img)
@@ -274,8 +276,8 @@ class ObjectDetection_ui(tk.Tk):
 
         # Entry path for saving the output video file
         self.videoOutText = StringVar(None)
-        self.videoOutText = "Please indicate the path" + \
-            "to output the saved video file."
+        self.videoOutText = "Please indicate the path " + \
+            "to output the saved file."
         self.video_out_path = Entry(self.videoout,
                                     width=54,
                                     textvariable=self.videoOutText)
@@ -290,7 +292,7 @@ class ObjectDetection_ui(tk.Tk):
         # Checkbutton for whether output an video or not
         self.var = IntVar()
         self.video_out = Checkbutton(self.videoout,
-                                     text="Save Video Output",
+                                     text="Save Output",
                                      variable=self.var,
                                      command=self.outputvideopath
                                      )
