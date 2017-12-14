@@ -3,7 +3,8 @@ import pathmagic  # noqa
 import unittest
 import cv2
 import numpy as np
-from submodule import appfunction as appfun
+from function import appfunction as appfun
+from . import user_interface as ui
 
 '''
 This class tests main functions of this detector.

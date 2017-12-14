@@ -3,8 +3,8 @@ import os
 # sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 # import submodule.appfunction as af
 # import submodule.object_detection_main as od
-from submodule import appfunction as af
-from submodule import object_detection_main as od
+from function import appfunction as af
+from function import object_detection_main as od
 import tkinter.filedialog
 from tkinter import *
 import tkinter as tk
