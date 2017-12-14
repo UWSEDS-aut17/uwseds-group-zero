@@ -4,7 +4,8 @@ Simply run the following bash code at the directory(../uwseds-group-zero/objectd
 $ python unser_interface.py
 ```
 The user interface will show up:
-![](https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/user_interface.png){:height="50%" width="50%"}
+
+<img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/user_interface.png" height="70%" width="70%">
 
 The programe is able to process three different type of media data -- images, videos, camera stream
 
@@ -22,8 +23,7 @@ The programe is able to process three different type of media data -- images, vi
 # Example
 Here we show a processed result of a example image. 
 #### The origin image:
-![](https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/example.jpg){:height="391px" width="587px"}
+<img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/example.jpg" height="70%" width="70%">
 
 #### The process result:
-![](https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/labeledImage.jpg){:height="391px" width="587px"}
-
+<img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/labeledImage.jpg" height="70%" width="70%" >
