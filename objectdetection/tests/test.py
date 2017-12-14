@@ -17,7 +17,7 @@ class Object_detector_test(unittest.TestCase):
     '''
     def test_input_image(self):
         img_input = "test_image.jpg"
-        modelPath = '../ssd_mobilenet_v1_coco_11_06_2017' + \
+        modelPath = '../function/ssd_mobilenet_v1_coco_11_06_2017' + \
                     '/frozen_inference_graph.pb'
         labelMapPath = '../data/mscoco_label_map.pbtxt'
         image_done, testval = appfun.input_image(img_input,
@@ -49,7 +49,7 @@ class Object_detector_test(unittest.TestCase):
     Test the function of detecting live camera
     '''
     def test_input_cam(self):
-        modelPath = '../submodule/ssd_mobilenet_v1_coco_11_06_2017/' + \
+        modelPath = '../function/ssd_mobilenet_v1_coco_11_06_2017/' + \
                     'frozen_inference_graph.pb'
         labelMapPath = '../data/mscoco_label_map.pbtxt'
         self.assertTrue(
@@ -64,7 +64,7 @@ class Object_detector_test(unittest.TestCase):
     Test the helper function of detecting video/live camera
     '''
     def test_video_open(self):
-        modelPath = '../submodule/ssd_mobilenet_v1_coco_11_06_2017/' + \
+        modelPath = '../function/ssd_mobilenet_v1_coco_11_06_2017/' + \
                     'frozen_inference_graph.pb'
         labelMapPath = '../data/mscoco_label_map.pbtxt'
         cap = cv2.VideoCapture("")
