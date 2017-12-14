@@ -58,3 +58,8 @@ In order to use the video input capturing property of opencv, here are some stra
 		 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_install_path/lib/pkgconfig
 		 export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_install_path/lib/
 15. step 10 to 14 will be done after you install opencv to your device (if step1 to 9 doesnot install opencv successfully (validate by running import cv2 in a python file), try brew install to your machine and pip install in your virtualenv environment --- this works for me to read video file (avi and mp4) using cv2.VideoCapture())
+
+### Test ###
+* Go into the tests folder in objectdetection directory
+* Run nosetests --with-coverage test.py
+* If want to run: python3 test.py, change the first line of importing in test.py to be: "import pathmagic  # noqa" to aviod import issue
