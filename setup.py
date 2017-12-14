@@ -29,6 +29,8 @@ setup(
                       'Pillow>=1.0',
                       'matplotlib',
                       'opencv-python',
+                      'nose',
+                      'coverage',
                       'pycodestyle'],
     python_requires='>=3.5, !=3.6.*, <4',
 
