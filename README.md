@@ -67,3 +67,9 @@ In order to use the video input capturing property of opencv, here are some stra
 * Go into the tests folder in objectdetection directory
 * Run nosetests --with-coverage test.py
 * If want to run: python3 test.py, change the first line of importing in test.py to be: "import pathmagic  # noqa" to aviod import issue
+
+### Example ###
+In the example folder, the Example.md is the thorough usage guidance of our application --- how to interact with the user interface to get desired results.
+
+If user wants to use the main functions live in appfunction.py in uwseds-group-zero/function which contains the main functionalities of our app in the source code, there is a simple ipython jupyter notebook example.ipynb for reference.
+User can also refer to the function specification in Doc/ for more details.
