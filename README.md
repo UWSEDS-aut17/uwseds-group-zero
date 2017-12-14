@@ -2,11 +2,11 @@
 
 ### Problem
 
-Our projects aims at the problem of objection detection and labeling, this appears in fields like robot manipulation, self driving car, etc. We will first use the data to train a model, then use the model to detect four different objecs(vehicle, pedestrian, cyclist and traffic lights) with different media. 
+Our projects aims at the problem of objection detection and labeling, this appears in fields like robot manipulation, self driving car, etc. We will first use the data to train a model, then use the model to detect four different objecs(vehicle, pedestrian, cyclist and traffic lights) with different media.
 
 ![](/1.png)
 
-1.) Behind the scene, we will first implement a neural network to train on the labelled image dataset and perform object detections on the test dataset and labeling them. Let it be our pre-trained model. 
+1.) Behind the scene, we will first implement a neural network to train on the labelled image dataset and perform object detections on the test dataset and labeling them. Let it be our pre-trained model.
 
 2.) Nowadays, there are many algorithms of deep neuro network, specially on object detection. People should know how their model behaves and how fast does it perform when being applied in a real detection process, before going further in object detection research (i.e narrowing down the boxes, 3D detection, etc). Then we decided to build a handy tool of this topic so that researcher users can evaluate their models, trained by a specific algorithm.
 
@@ -33,13 +33,16 @@ Potentially, there are several difficulties that need to be addressed:
 
 ### Usage ###
 Go into the folder of uwseds-group-zero as the root of our application. Run the following code.
-* > python3 setup.py install --- this should install all required packages so that our application can be run.
-* > cd objectdetection --- where our interface python file lives
-* > python3 user_interface.py --- execute the interface
+* > python3 setup.py install </br>
+--- this should install all required packages so that our application can be run.
+* > cd objectdetection </br>
+--- where our interface python file lives
+* > python3 user_interface.py </br>
+--- execute the interface
 Then our interface of the object detection application should show up for user.
 
 #### Installing Opencv ####
-In order to use the video input capturing property of opencv, here are some strategies that are provided for making opencv work like a charm. 
+In order to use the video input capturing property of opencv, here are some strategies that are provided for making opencv work like a charm.
 (Just for referencing, no guarantees. If want fully install, please directly go to the link in step 9.)
 1. > cd (to any folder)
 2. > git clone https://github.com/Itseez/opencv.git
@@ -54,10 +57,10 @@ In order to use the video input capturing property of opencv, here are some stra
 11. > cd 3rdparty/ffmpeg
 12. > cp opencv_ffmpeg_64.dll opencv_ffmpeg.dll to your opencv_dir/bin
 13. Copy this bin folder to ~/path/to/<my_virtualenv>/lib/python3.5/site-packages/cv2
-14. Run: 
-		 * export LD_LIBRARY_PATH=/ffmpeg_install_path/lib/
-		 * export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_install_path/lib/pkgconfig
-		 * export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_install_path/lib/
+14. Run: </br>
+		 * export LD_LIBRARY_PATH=/ffmpeg_install_path/lib/ </br>
+		 * export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/ffmpeg_install_path/lib/pkgconfig </br>
+		 * export PKG_CONFIG_LIBDIR=$PKG_CONFIG_LIBDIR:/ffmpeg_install_path/lib/ </br>
 15. Step 10 to 14 will be done after you install opencv to your device (if step1 to 9 doesnot install opencv successfully (validate by running import cv2 in a python file), try brew install to your machine and pip install in your virtualenv environment --- this works for me to read video file (avi and mp4) using cv2.VideoCapture())
 
 ### Test ###
