@@ -23,7 +23,7 @@ The programe is able to process three different type of media data -- images, vi
 # Example
 Here we show a processed result of a example image. 
 #### The origin image:
-<img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/example.jpg" height="70%" width="70%"}>
+<img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/example.jpg" height="70%" width="70%">
 
 #### The process result:
 <img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/labeledImage.jpg" height="70%" width="70%" >
