@@ -15,8 +15,8 @@ import cv2
 
 # Check for the tensorflow version
 def tf_version_check():
-        # check for version of tensorflow
-    if float(tf.__version__) <= 1.4:
+    # check for version of tensorflow
+    if float(tf.__version__[0:3]) <= 1.4:
         raise ImportError('Please upgrade your' +
                           'tensorflow installation to v1.4.0!'
                           )
