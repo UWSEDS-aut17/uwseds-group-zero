@@ -4,7 +4,7 @@ import unittest
 import cv2
 import numpy as np
 from function import appfunction as appfun
-from . import user_interface as ui
+from objectdetection import user_interface as ui
 
 '''
 This class tests main functions of this detector.

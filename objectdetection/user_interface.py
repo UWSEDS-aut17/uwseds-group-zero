@@ -79,6 +79,8 @@ class ObjectDetection_ui(tk.Tk):
 
     def resize_image(self, event, img):
         w, h = event.width, event.height
+        if img is None:
+            raise Exception("Invalid input image")
         img_copy = img.copy()
         resize_img = img_copy.resize((w, h))
         photo = PIL.ImageTk.PhotoImage(resize_img)
