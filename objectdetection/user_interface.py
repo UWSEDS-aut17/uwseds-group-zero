@@ -229,7 +229,7 @@ class ObjectDetection_ui(tk.Tk):
         self.rate.pack(fill=X, expand=YES)
         # display the path of model used and label map data file
         custPath = StringVar(None)
-        pretext_model = "Please indicate the path" + \
+        pretext_model = "Please indicate the path " + \
             "to your detection model (*.pb)"
         self.model_path = Entry(self.modelGroup,
                                 width=54,
@@ -252,7 +252,7 @@ class ObjectDetection_ui(tk.Tk):
 
         # label map data file
         custPath_label = StringVar(None)
-        pretext_label = "Please indicate the path" + \
+        pretext_label = "Please indicate the path " + \
             "to your label map file (*.pbtxt)"
         self.label_path = Entry(self.labelGroup,
                                 width=54,
@@ -274,8 +274,8 @@ class ObjectDetection_ui(tk.Tk):
 
         # Entry path for saving the output video file
         self.videoOutText = StringVar(None)
-        self.videoOutText = "Please indicate the path" + \
-            "to output the saved video file."
+        self.videoOutText = "Please indicate the path " + \
+            "to output the saved file."
         self.video_out_path = Entry(self.videoout,
                                     width=54,
                                     textvariable=self.videoOutText)
@@ -290,7 +290,7 @@ class ObjectDetection_ui(tk.Tk):
         # Checkbutton for whether output an video or not
         self.var = IntVar()
         self.video_out = Checkbutton(self.videoout,
-                                     text="Save Video Output",
+                                     text="Save Output",
                                      variable=self.var,
                                      command=self.outputvideopath
                                      )
