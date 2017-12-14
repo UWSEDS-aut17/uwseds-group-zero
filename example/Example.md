@@ -13,15 +13,15 @@ The programe is able to process three different type of media data -- images, vi
 | Buttom            | Specification                            |
 | ----------------- | ---------------------------------------- |
 | Browse            | Select the model or label map data       |
-| Save Output       | Tick to save the output file             |
-| Show process rate | Tick to show the processing speed        |
-| Image             | Load the image that want to process      |
-| Video             | Load the videl that want to process      |
-| Camera            | Load the camera stream that want to process |
+| Save Output       | Check to save the output to a file       |
+| Show process rate | Check to show the processing speed       |
+| Image             | Load the image to be processed           |
+| Video             | Load the videl to be processed           |
+| Camera            | Load the camera stream to be processed   |
 | Quit              | End the program                          |
 
 # Example
-Here we show a processed result of a example image. 
+Here we show a processed result of a example image.
 #### The origin image:
 <img src="https://raw.githubusercontent.com/UWSEDS-aut17/uwseds-group-zero/master/example/example.jpg" height="70%" width="70%">
 
